@@ -1,6 +1,6 @@
 # secure-enterprise-aad
 Advanced Azure AD Security Implementation with Zero Trust and Automation
-## 🧠 Project Overview
+## Project Overview
 
 This project demonstrates an enterprise-grade Azure Active Directory (Azure AD) security implementation using **Zero Trust principles**, **Conditional Access**, **Multi-Factor Authentication (MFA)**, **Privileged Identity Management (PIM)**, and **SIEM integration**. It automates secure deployments using PowerShell, Microsoft Graph, and optionally Terraform.
 
