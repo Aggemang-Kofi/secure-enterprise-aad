@@ -1,22 +1,21 @@
-# Conditional Access Policy: Require MFA for All Users
+# Privileged Identity Management (PIM) Configuration
 
 ## Objective
-Ensure strong authentication by enforcing MFA across all users while excluding break-glass accounts.
+Protect admin privileges using JIT access, approval workflows, and MFA.
 
-## Policy Settings
+## Settings for Global Administrator (admin@yourdomain)
 
-| Setting              | Value                                         |
-|----------------------|-----------------------------------------------|
-| **Policy Name**      | Require MFA for All Users                     |
-| **Users Included**   | All users                                     |
-| **Users Excluded**   | breakglass@yourdomain.onmicrosoft.com         |
-| **Cloud Apps**       | All                                           |
-| **Grant Controls**   | Require multi-factor authentication           |
-| **Enable Policy**    | ✅ Enabled                                    |
-
-## Notes
-- Excluding the break-glass account avoids accidental lockout.
-- MFA methods used include Microsoft Authenticator and FIDO2 keys.
+| Setting               | Value                   |
+|-----------------------|-------------------------|
+| **Assignment Type**   | Eligible                |
+| **MFA Required**      | ✅ Yes                  |
+| **Approval Required** | ✅ Yes (2 managers)     |
+| **Justification**     | Required                |
+| **Activation Time**   | 1 hour                  |
 
 ## Screenshot
+![PIM Activation](../screenshots/pim_activation.png)
 
+## Notes
+- Alerts sent on role elevation.
+- Logs can be pushed to Sentinel for detection.
