@@ -1,0 +1,4 @@
+AuditLogs
+| where ActivityDisplayName == "Activate eligible role"
+| where LoggedByService == "PIM"
+| project TimeGenerated, InitiatedBy, TargetResources
