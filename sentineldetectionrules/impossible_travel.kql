@@ -1,0 +1,11 @@
+let thresholdInSeconds = 60 * 60;
+SigninLogs
+| where ConditionalAccessStatus == "success"
+| project UserPrincipalName, IPAddress, Location, TimeGenerated
+| join kind=inner (
+    SigninLogs
+    | where ConditionalAccessStatus == "success"
+    | project UserPrincipalName, IPAddress2 = IPAddress, Location2 = Location, TimeGenerated2 = TimeGenerated
+) on UserPrincipalName
+| where abs(datetime_diff("second", TimeGenerated, TimeGenerated2)) < thresholdInSeconds
+| where IPAddress != IPAddress2
