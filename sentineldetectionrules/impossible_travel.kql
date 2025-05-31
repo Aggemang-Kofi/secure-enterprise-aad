@@ -1,11 +1,11 @@
-let thresholdInSeconds = 60 * 60;
+let lookback = 1d;
 SigninLogs
-| where ConditionalAccessStatus == "success"
-| project UserPrincipalName, IPAddress, Location, TimeGenerated
+| where TimeGenerated > ago(lookback)
+| project UserPrincipalName, Location, IPAddress, TimeGenerated
 | join kind=inner (
     SigninLogs
-    | where ConditionalAccessStatus == "success"
-    | project UserPrincipalName, IPAddress2 = IPAddress, Location2 = Location, TimeGenerated2 = TimeGenerated
+    | where TimeGenerated > ago(lookback)
+    | project UserPrincipalName, Location, IPAddress, TimeGenerated
 ) on UserPrincipalName
-| where abs(datetime_diff("second", TimeGenerated, TimeGenerated2)) < thresholdInSeconds
-| where IPAddress != IPAddress2
+| where Location != Location1
+| where abs(datetime_diff("minute", TimeGenerated, TimeGenerated1)) < 60
