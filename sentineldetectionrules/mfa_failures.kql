@@ -1,0 +1,4 @@
+SigninLogs
+| where ResultType == "500121" // MFA required but not satisfied
+| summarize FailedMFA = count() by UserPrincipalName, bin(TimeGenerated, 1h)
+| sort by FailedMFA desc
