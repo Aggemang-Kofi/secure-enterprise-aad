@@ -1,0 +1,6 @@
+## Documentation
+
+- [MFA Policy Setup](./docs/mfa-policy.md)
+- [PIM Configuration](./docs/pim-config.md)
+- [Sentinel Log Integration](./docs/logs-integration.md)
+- [User Creation & Roles](./docs/user-creation.md)
