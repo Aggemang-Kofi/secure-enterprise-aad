@@ -100,16 +100,6 @@ The `/sentineldetectionrules/` folder includes:
 - Enable alerts on role activation, risky users, and high-failure MFA rates
 - Backup all CA policies and roles before changes
 
----
-
-##  To-Do
-
-- [ ] Add Terraform module for full deployment
-- [ ] Add Graph API-based scripts for automation
-- [ ] Add Teams/Slack alert integration
-- [ ] Add audit log ingestion into third-party SIEM
-
----
 
 ## References
 
